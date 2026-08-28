@@ -1,0 +1,32 @@
+# Python environment
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Raw source documents
+data/raw/*
+
+# Generated chunks
+data/processed/*
+
+# Generated embeddings
+data/embeddings/*
+
+# Generated reports
+data/reports/*
