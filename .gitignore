@@ -30,3 +30,6 @@ data/embeddings/*
 
 # Generated reports
 data/reports/*
+
+data/metadata/*.json
+data/metadata/*.csv
