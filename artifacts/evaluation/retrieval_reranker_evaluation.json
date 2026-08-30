@@ -1,0 +1,2265 @@
+{
+  "created_at_utc": "2026-08-30T13:30:31.237276+00:00",
+  "evaluation_type": "baseline_vs_reranked_retrieval",
+  "configuration": {
+    "candidate_k": 10,
+    "rerank_k": 3,
+    "query_count": 13,
+    "embedding_model": "BAAI/bge-m3",
+    "reranker_model": "BAAI/bge-reranker-v2-m3"
+  },
+  "candidate_retrieval": {
+    "hit_at_10": 0.8462,
+    "recall_at_10": 0.8462,
+    "mrr_at_10": 0.4778
+  },
+  "baseline_top_n": {
+    "hit_at_3": 0.6923,
+    "mrr_at_3": 0.4615,
+    "precision_at_3": 0.2564,
+    "ndcg_at_3": 0.5268
+  },
+  "reranked_top_n": {
+    "hit_at_3": 0.8462,
+    "mrr_at_3": 0.7692,
+    "precision_at_3": 0.3333,
+    "ndcg_at_3": 0.8379
+  },
+  "improvement": {
+    "hit_at_3_delta": 0.1539,
+    "mrr_at_3_delta": 0.3077,
+    "precision_at_3_delta": 0.0769,
+    "ndcg_at_3_delta": 0.3111
+  },
+  "queries": [
+    {
+      "id": "Q001",
+      "query": "Whether I can receive claim for Winter sports Onpiste skiing?",
+      "expected_answer_status": "conditional",
+      "relevant_sources": [
+        {
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "page_number": 10
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "recall": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.3333,
+        "ndcg": 1.0
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.3333,
+        "ndcg": 1.0
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": true,
+          "point_id": "196ebc06-e23e-5140-9d1b-a55e807b2f38",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "source_file": "Travel_Terms_And_Conditions_Outbound.pdf",
+          "page_number": 10,
+          "page_chunk_index": 6,
+          "score": 0.56761
+        },
+        {
+          "rank": 2,
+          "relevant": false,
+          "point_id": "a08b2340-8a15-5a26-96d2-657e8ea4818e",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "source_file": "Travel_Terms_And_Conditions_Outbound.pdf",
+          "page_number": 3,
+          "page_chunk_index": 18,
+          "score": 0.548495
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "0b77c445-0c64-5d0a-b3ef-383b89e85dff",
+          "document_id": "QIC_Personal_accident_insurance",
+          "source_file": "QIC_Personal_accident_insurance.pdf",
+          "page_number": 13,
+          "page_chunk_index": 1,
+          "score": 0.534712
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "af4c906d-ed23-566a-b375-b225671985fe",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "source_file": "Travel_Terms_And_Conditions_Outbound.pdf",
+          "page_number": 12,
+          "page_chunk_index": 11,
+          "score": 0.529841
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "9754bcfd-3072-5401-8a82-593aa31a9cf9",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "source_file": "Travel_Terms_And_Conditions_Outbound.pdf",
+          "page_number": 12,
+          "page_chunk_index": 13,
+          "score": 0.529197
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "d36ce7d2-b305-5a09-930e-45c87eba2a2c",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 23,
+          "page_chunk_index": 4,
+          "score": 0.528831
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "e05ffb68-736c-5162-b87c-31fb2bc90b3d",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 17,
+          "page_chunk_index": 1,
+          "score": 0.528223
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "bde0332a-4154-5c99-af6e-56ffdcfa8161",
+          "document_id": "QIC_Home_Terms_And_Conditions",
+          "source_file": "QIC_Home_Terms_And_Conditions.pdf",
+          "page_number": 9,
+          "page_chunk_index": 6,
+          "score": 0.523474
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "e769670d-012d-55fa-9ae5-365d1dab38b4",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "source_file": "Travel_Terms_And_Conditions_Outbound.pdf",
+          "page_number": 12,
+          "page_chunk_index": 3,
+          "score": 0.522003
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "a94ea6de-8735-562f-bdc1-8268fa652606",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "source_file": "Travel_Terms_And_Conditions_Outbound.pdf",
+          "page_number": 12,
+          "page_chunk_index": 0,
+          "score": 0.516346
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 1,
+          "rerank_score": 0.129844,
+          "relevant": true,
+          "point_id": "196ebc06-e23e-5140-9d1b-a55e807b2f38",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "source_file": "Travel_Terms_And_Conditions_Outbound.pdf",
+          "page_number": 10,
+          "page_chunk_index": 6
+        },
+        {
+          "retrieval_rank": 10,
+          "rerank_rank": 2,
+          "rerank_score": 0.000791,
+          "relevant": false,
+          "point_id": "a94ea6de-8735-562f-bdc1-8268fa652606",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "source_file": "Travel_Terms_And_Conditions_Outbound.pdf",
+          "page_number": 12,
+          "page_chunk_index": 0
+        },
+        {
+          "retrieval_rank": 6,
+          "rerank_rank": 3,
+          "rerank_score": 0.000515,
+          "relevant": false,
+          "point_id": "d36ce7d2-b305-5a09-930e-45c87eba2a2c",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 23,
+          "page_chunk_index": 4
+        }
+      ]
+    },
+    {
+      "id": "Q002",
+      "query": "If my vehicle is damaged in an accident, will Aviva arrange recovery and repair?",
+      "expected_answer_status": "covered",
+      "relevant_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 6,
+          "page_chunk_index": 0,
+          "point_id": "6e237a6a-632d-55b6-a63d-f3659b0ac836"
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": null,
+        "hit": 0.0,
+        "recall": 0.0,
+        "reciprocal_rank": 0.0
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": null,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "precision": 0.0,
+        "ndcg": 0.0
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": null,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "precision": 0.0,
+        "ndcg": 0.0
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": false,
+          "point_id": "06504710-1662-5350-9135-37c5ca7fad88",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 36,
+          "page_chunk_index": 0,
+          "score": 0.645927
+        },
+        {
+          "rank": 2,
+          "relevant": false,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 2,
+          "page_chunk_index": 2,
+          "score": 0.640758
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "81cb386a-41ca-5857-be79-2e88c2b2359a",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 4,
+          "score": 0.633116
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "81828d4c-792d-54ed-b704-804d366b2ede",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 11,
+          "page_chunk_index": 2,
+          "score": 0.624173
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "5896a327-3399-5940-bd82-7961147a88d7",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 22,
+          "page_chunk_index": 1,
+          "score": 0.623466
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 3,
+          "page_chunk_index": 0,
+          "score": 0.619135
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "dd76e0c1-3afa-5d3c-a6da-965ece7d5846",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 0,
+          "score": 0.61716
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "73f81891-0360-51db-95b4-2561d21eec13",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 5,
+          "page_chunk_index": 3,
+          "score": 0.612374
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "5a68b4c5-aa0a-5c3b-803d-b007c176f2aa",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 1,
+          "page_chunk_index": 0,
+          "score": 0.608227
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "941c1e85-fc50-506d-a545-073766f09706",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 2,
+          "score": 0.592321
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 5,
+          "rerank_rank": 1,
+          "rerank_score": 0.33411,
+          "relevant": false,
+          "point_id": "5896a327-3399-5940-bd82-7961147a88d7",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 22,
+          "page_chunk_index": 1
+        },
+        {
+          "retrieval_rank": 3,
+          "rerank_rank": 2,
+          "rerank_score": 0.283193,
+          "relevant": false,
+          "point_id": "81cb386a-41ca-5857-be79-2e88c2b2359a",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 4
+        },
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 3,
+          "rerank_score": 0.269257,
+          "relevant": false,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 2,
+          "page_chunk_index": 2
+        }
+      ]
+    },
+    {
+      "id": "Q003",
+      "query": "If the policy is cancelled after 30 days whether it will be refund or any charges will be applied?",
+      "expected_answer_status": "conditional",
+      "relevant_sources": [
+        {
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 5
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "recall": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.3333,
+        "ndcg": 1.0
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.6667,
+        "ndcg": 1.6309
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": true,
+          "point_id": "44ca27fc-47a5-5b16-8d8e-8fd4622477d4",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 5,
+          "page_chunk_index": 8,
+          "score": 0.766055
+        },
+        {
+          "rank": 2,
+          "relevant": false,
+          "point_id": "3998bab3-7404-5222-8131-c8a61e24c870",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 3,
+          "page_chunk_index": 5,
+          "score": 0.729723
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "5aa9b874-2561-5c9d-b8fa-4eb5da8aea21",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 33,
+          "page_chunk_index": 1,
+          "score": 0.729015
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "df03a418-2dc4-5d04-a2dd-ac6949e6108f",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 16,
+          "page_chunk_index": 3,
+          "score": 0.708651
+        },
+        {
+          "rank": 5,
+          "relevant": true,
+          "point_id": "e0081a86-0585-5e7f-a4c0-e61d595dbeae",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 5,
+          "page_chunk_index": 10,
+          "score": 0.707159
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "112a1387-31b0-55da-b859-b10b04b61183",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 6,
+          "page_chunk_index": 3,
+          "score": 0.685145
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "9d379623-c47a-5e18-8461-a288db1606b8",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 21,
+          "page_chunk_index": 4,
+          "score": 0.67082
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "bc88f729-0c7e-59cd-82de-a2f4b74e3b06",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 7,
+          "page_chunk_index": 1,
+          "score": 0.66885
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "c7c5af75-7e2e-5fc2-9a47-2aa2d9b785e5",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 26,
+          "page_chunk_index": 2,
+          "score": 0.66767
+        },
+        {
+          "rank": 10,
+          "relevant": true,
+          "point_id": "da4c4c68-56dd-59f5-bf78-ca17ba4f76e1",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 5,
+          "page_chunk_index": 6,
+          "score": 0.665029
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 5,
+          "rerank_rank": 1,
+          "rerank_score": 0.824837,
+          "relevant": true,
+          "point_id": "e0081a86-0585-5e7f-a4c0-e61d595dbeae",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 5,
+          "page_chunk_index": 10
+        },
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 2,
+          "rerank_score": 0.782948,
+          "relevant": true,
+          "point_id": "44ca27fc-47a5-5b16-8d8e-8fd4622477d4",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 5,
+          "page_chunk_index": 8
+        },
+        {
+          "retrieval_rank": 4,
+          "rerank_rank": 3,
+          "rerank_score": 0.706371,
+          "relevant": false,
+          "point_id": "df03a418-2dc4-5d04-a2dd-ac6949e6108f",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 16,
+          "page_chunk_index": 3
+        }
+      ]
+    },
+    {
+      "id": "Q004",
+      "query": "If my child seat is fitted in the vehicle and I make an accident claim, will Aviva pay to replace the child seat even if there is no visible damage?",
+      "expected_answer_status": "covered",
+      "relevant_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 10
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "recall": 1.0,
+        "reciprocal_rank": 0.5
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "precision": 0.3333,
+        "ndcg": 0.6309
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.3333,
+        "ndcg": 1.0
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": false,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 2,
+          "page_chunk_index": 2,
+          "score": 0.610018
+        },
+        {
+          "rank": 2,
+          "relevant": true,
+          "point_id": "8dcb7beb-5c97-5a0d-b9d0-e9ae0d2e3030",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 10,
+          "page_chunk_index": 4,
+          "score": 0.606976
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "747546f2-765d-5eb2-8172-e4035edd0d4c",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 12,
+          "page_chunk_index": 8,
+          "score": 0.605728
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "81828d4c-792d-54ed-b704-804d366b2ede",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 11,
+          "page_chunk_index": 2,
+          "score": 0.594492
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "e1733e8d-42c4-58eb-9fb9-08d0a84dd30d",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 11,
+          "page_chunk_index": 5,
+          "score": 0.586177
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "1e97f73a-545d-5f1f-ba4a-8893873dcb5e",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 12,
+          "page_chunk_index": 6,
+          "score": 0.584569
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "06504710-1662-5350-9135-37c5ca7fad88",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 36,
+          "page_chunk_index": 0,
+          "score": 0.580201
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "5896a327-3399-5940-bd82-7961147a88d7",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 22,
+          "page_chunk_index": 1,
+          "score": 0.579939
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "d98db7b3-bfe1-5bf8-a2be-a063f83225be",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 20,
+          "page_chunk_index": 7,
+          "score": 0.567251
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "81cb386a-41ca-5857-be79-2e88c2b2359a",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 4,
+          "score": 0.567177
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 1,
+          "rerank_score": 0.995037,
+          "relevant": true,
+          "point_id": "8dcb7beb-5c97-5a0d-b9d0-e9ae0d2e3030",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 10,
+          "page_chunk_index": 4
+        },
+        {
+          "retrieval_rank": 6,
+          "rerank_rank": 2,
+          "rerank_score": 0.652667,
+          "relevant": false,
+          "point_id": "1e97f73a-545d-5f1f-ba4a-8893873dcb5e",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 12,
+          "page_chunk_index": 6
+        },
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 3,
+          "rerank_score": 0.079954,
+          "relevant": false,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 2,
+          "page_chunk_index": 2
+        }
+      ]
+    },
+    {
+      "id": "Q005",
+      "query": "Will Aviva's repair guarantee cover damage caused by normal wear and tear?",
+      "expected_answer_status": "not_covered",
+      "relevant_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 10
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": 10,
+        "hit": 1.0,
+        "recall": 1.0,
+        "reciprocal_rank": 0.1
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": null,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "precision": 0.0,
+        "ndcg": 0.0
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "precision": 0.3333,
+        "ndcg": 0.6309
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": false,
+          "point_id": "81cb386a-41ca-5857-be79-2e88c2b2359a",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 4,
+          "score": 0.594914
+        },
+        {
+          "rank": 2,
+          "relevant": false,
+          "point_id": "ebc9574f-cc2e-517c-ba67-39314d6ae1f4",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 11,
+          "page_chunk_index": 3,
+          "score": 0.593356
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 2,
+          "page_chunk_index": 2,
+          "score": 0.583886
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "5896a327-3399-5940-bd82-7961147a88d7",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 22,
+          "page_chunk_index": 1,
+          "score": 0.5739
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 3,
+          "page_chunk_index": 0,
+          "score": 0.57135
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "06504710-1662-5350-9135-37c5ca7fad88",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 36,
+          "page_chunk_index": 0,
+          "score": 0.561702
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "e1733e8d-42c4-58eb-9fb9-08d0a84dd30d",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 11,
+          "page_chunk_index": 5,
+          "score": 0.549828
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "54f3ae45-1e65-5fc9-aab3-4e39d420a146",
+          "document_id": "Swiss Re Contractors_all_risks_insurance_en",
+          "source_file": "Swiss Re Contractors_all_risks_insurance_en.pdf",
+          "page_number": 26,
+          "page_chunk_index": 4,
+          "score": 0.549031
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "d98db7b3-bfe1-5bf8-a2be-a063f83225be",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 20,
+          "page_chunk_index": 7,
+          "score": 0.545951
+        },
+        {
+          "rank": 10,
+          "relevant": true,
+          "point_id": "3dc18350-4107-597d-9867-0657b63177ac",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 10,
+          "page_chunk_index": 5,
+          "score": 0.536177
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 8,
+          "rerank_rank": 1,
+          "rerank_score": 0.384802,
+          "relevant": false,
+          "point_id": "54f3ae45-1e65-5fc9-aab3-4e39d420a146",
+          "document_id": "Swiss Re Contractors_all_risks_insurance_en",
+          "source_file": "Swiss Re Contractors_all_risks_insurance_en.pdf",
+          "page_number": 26,
+          "page_chunk_index": 4
+        },
+        {
+          "retrieval_rank": 10,
+          "rerank_rank": 2,
+          "rerank_score": 0.099043,
+          "relevant": true,
+          "point_id": "3dc18350-4107-597d-9867-0657b63177ac",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 10,
+          "page_chunk_index": 5
+        },
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 3,
+          "rerank_score": 0.048654,
+          "relevant": false,
+          "point_id": "81cb386a-41ca-5857-be79-2e88c2b2359a",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 4
+        }
+      ]
+    },
+    {
+      "id": "Q006",
+      "query": "If I make a claim only for broken windscreen glass, will my no claim discount be affected?",
+      "expected_answer_status": "covered",
+      "relevant_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 20
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "recall": 1.0,
+        "reciprocal_rank": 0.5
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "precision": 0.3333,
+        "ndcg": 0.6309
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.3333,
+        "ndcg": 1.0
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": false,
+          "point_id": "efdeda45-7a9b-5156-8f07-87e13c1b3199",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 18,
+          "page_chunk_index": 1,
+          "score": 0.682901
+        },
+        {
+          "rank": 2,
+          "relevant": true,
+          "point_id": "161a2fa9-6d96-5982-9980-df3e8bef3336",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 20,
+          "page_chunk_index": 3,
+          "score": 0.673893
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "747546f2-765d-5eb2-8172-e4035edd0d4c",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 12,
+          "page_chunk_index": 8,
+          "score": 0.668273
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "cba3f130-1ff6-5cd7-b093-3281ecf4cbe4",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 17,
+          "page_chunk_index": 5,
+          "score": 0.622167
+        },
+        {
+          "rank": 5,
+          "relevant": true,
+          "point_id": "b7f19171-86dd-5e5c-8459-d9204959c3b3",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 20,
+          "page_chunk_index": 0,
+          "score": 0.619513
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "6c077944-c4a7-5a00-b4aa-5cf64c9356e5",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 18,
+          "page_chunk_index": 3,
+          "score": 0.616322
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "d9954263-adc9-538b-abff-77ab351eb5b4",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 18,
+          "page_chunk_index": 0,
+          "score": 0.616039
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "ac4ddfc1-d420-5c56-be68-c265c8b27d59",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 14,
+          "page_chunk_index": 2,
+          "score": 0.615513
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "ce7ad67c-b427-5aca-a286-ca931d1cb5db",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 26,
+          "page_chunk_index": 8,
+          "score": 0.597875
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "b1b66cc0-2fae-5fe5-bb05-28ed5fd97bde",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 6,
+          "page_chunk_index": 2,
+          "score": 0.596667
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 1,
+          "rerank_score": 0.984651,
+          "relevant": true,
+          "point_id": "161a2fa9-6d96-5982-9980-df3e8bef3336",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 20,
+          "page_chunk_index": 3
+        },
+        {
+          "retrieval_rank": 3,
+          "rerank_rank": 2,
+          "rerank_score": 0.963655,
+          "relevant": false,
+          "point_id": "747546f2-765d-5eb2-8172-e4035edd0d4c",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 12,
+          "page_chunk_index": 8
+        },
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 3,
+          "rerank_score": 0.750898,
+          "relevant": false,
+          "point_id": "efdeda45-7a9b-5156-8f07-87e13c1b3199",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 18,
+          "page_chunk_index": 1
+        }
+      ]
+    },
+    {
+      "id": "Q007",
+      "query": "Can I use my Aviva motor insurance when driving another vehicle?",
+      "expected_answer_status": "conditional",
+      "relevant_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 15
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": 9,
+        "hit": 1.0,
+        "recall": 1.0,
+        "reciprocal_rank": 0.1111
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": null,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "precision": 0.0,
+        "ndcg": 0.0
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.3333,
+        "ndcg": 1.0
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": false,
+          "point_id": "5896a327-3399-5940-bd82-7961147a88d7",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 22,
+          "page_chunk_index": 1,
+          "score": 0.613938
+        },
+        {
+          "rank": 2,
+          "relevant": false,
+          "point_id": "d98db7b3-bfe1-5bf8-a2be-a063f83225be",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 20,
+          "page_chunk_index": 7,
+          "score": 0.597447
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 2,
+          "page_chunk_index": 2,
+          "score": 0.592169
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "06504710-1662-5350-9135-37c5ca7fad88",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 36,
+          "page_chunk_index": 0,
+          "score": 0.58126
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "81828d4c-792d-54ed-b704-804d366b2ede",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 11,
+          "page_chunk_index": 2,
+          "score": 0.580494
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "9b0af4a3-5ea1-59c4-80a8-9c3bfea59094",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 21,
+          "page_chunk_index": 0,
+          "score": 0.577451
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "81cb386a-41ca-5857-be79-2e88c2b2359a",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 4,
+          "score": 0.573917
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "fa3e0e0f-181a-5964-9457-fb24cb706fcf",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 34,
+          "page_chunk_index": 3,
+          "score": 0.566339
+        },
+        {
+          "rank": 9,
+          "relevant": true,
+          "point_id": "60f025e1-1db2-5558-ab0e-dcd8824f51e2",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 15,
+          "page_chunk_index": 3,
+          "score": 0.564295
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "b174f20f-705f-5ad1-8892-b9de6db8ee98",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 5,
+          "page_chunk_index": 4,
+          "score": 0.559115
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 9,
+          "rerank_rank": 1,
+          "rerank_score": 0.520886,
+          "relevant": true,
+          "point_id": "60f025e1-1db2-5558-ab0e-dcd8824f51e2",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 15,
+          "page_chunk_index": 3
+        },
+        {
+          "retrieval_rank": 3,
+          "rerank_rank": 2,
+          "rerank_score": 0.373324,
+          "relevant": false,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 2,
+          "page_chunk_index": 2
+        },
+        {
+          "retrieval_rank": 6,
+          "rerank_rank": 3,
+          "rerank_score": 0.027718,
+          "relevant": false,
+          "point_id": "9b0af4a3-5ea1-59c4-80a8-9c3bfea59094",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 21,
+          "page_chunk_index": 0
+        }
+      ]
+    },
+    {
+      "id": "Q008",
+      "query": "Are my personal belongings inside the vehicle covered if they are damaged accidentally?",
+      "expected_answer_status": "conditional",
+      "relevant_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 17
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "recall": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.3333,
+        "ndcg": 1.0
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.3333,
+        "ndcg": 1.0
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": true,
+          "point_id": "e05ffb68-736c-5162-b87c-31fb2bc90b3d",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 17,
+          "page_chunk_index": 1,
+          "score": 0.697096
+        },
+        {
+          "rank": 2,
+          "relevant": false,
+          "point_id": "32b5fa8c-3b43-5657-a6d8-7d82bac04ffa",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 8,
+          "page_chunk_index": 5,
+          "score": 0.675805
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "1e97f73a-545d-5f1f-ba4a-8893873dcb5e",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 12,
+          "page_chunk_index": 6,
+          "score": 0.674612
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "9623090d-f49c-59b8-987e-1815caff404f",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 4,
+          "page_chunk_index": 11,
+          "score": 0.671305
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "68cefa41-74d3-5f54-a568-eae49828a4ff",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 10,
+          "page_chunk_index": 0,
+          "score": 0.66693
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "87119b7c-6d58-514e-9e71-277baa1b975d",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 4,
+          "page_chunk_index": 6,
+          "score": 0.657854
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "3a015c87-cef8-5bba-85e5-5fcc621113bb",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 6,
+          "page_chunk_index": 1,
+          "score": 0.641274
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "b1aed67b-b685-5a21-ac13-6e8c8cf415d7",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "source_file": "Travel_Terms_And_Conditions_Outbound.pdf",
+          "page_number": 12,
+          "page_chunk_index": 9,
+          "score": 0.640908
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "fe0bff5c-9155-5bbf-9916-5f90bcd7fd38",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 17,
+          "page_chunk_index": 8,
+          "score": 0.640308
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "c5289f5f-3b64-5824-a24f-53fa3e5f2c25",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 11,
+          "page_chunk_index": 6,
+          "score": 0.636821
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 1,
+          "rerank_score": 0.846003,
+          "relevant": true,
+          "point_id": "e05ffb68-736c-5162-b87c-31fb2bc90b3d",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 17,
+          "page_chunk_index": 1
+        },
+        {
+          "retrieval_rank": 6,
+          "rerank_rank": 2,
+          "rerank_score": 0.170066,
+          "relevant": false,
+          "point_id": "87119b7c-6d58-514e-9e71-277baa1b975d",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 4,
+          "page_chunk_index": 6
+        },
+        {
+          "retrieval_rank": 3,
+          "rerank_rank": 3,
+          "rerank_score": 0.085481,
+          "relevant": false,
+          "point_id": "1e97f73a-545d-5f1f-ba4a-8893873dcb5e",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 12,
+          "page_chunk_index": 6
+        }
+      ]
+    },
+    {
+      "id": "Q009",
+      "query": "Will Aviva recover my electric vehicle if the battery runs out of charge?",
+      "expected_answer_status": "conditional",
+      "relevant_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 27
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": null,
+        "hit": 0.0,
+        "recall": 0.0,
+        "reciprocal_rank": 0.0
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": null,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "precision": 0.0,
+        "ndcg": 0.0
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": null,
+        "hit": 0.0,
+        "reciprocal_rank": 0.0,
+        "precision": 0.0,
+        "ndcg": 0.0
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": false,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 3,
+          "page_chunk_index": 0,
+          "score": 0.63149
+        },
+        {
+          "rank": 2,
+          "relevant": false,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 2,
+          "page_chunk_index": 2,
+          "score": 0.579202
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "81828d4c-792d-54ed-b704-804d366b2ede",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 11,
+          "page_chunk_index": 2,
+          "score": 0.575833
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "81cb386a-41ca-5857-be79-2e88c2b2359a",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 4,
+          "score": 0.57545
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "dd76e0c1-3afa-5d3c-a6da-965ece7d5846",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 0,
+          "score": 0.561746
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "73f81891-0360-51db-95b4-2561d21eec13",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 5,
+          "page_chunk_index": 3,
+          "score": 0.55913
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "941c1e85-fc50-506d-a545-073766f09706",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 2,
+          "score": 0.557973
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "a148256e-8001-587f-afa8-8052f2e24ef2",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 5,
+          "page_chunk_index": 5,
+          "score": 0.557617
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "d98db7b3-bfe1-5bf8-a2be-a063f83225be",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 20,
+          "page_chunk_index": 7,
+          "score": 0.535924
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "62dcfb6b-9900-55eb-ac24-3aec132c141f",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 5,
+          "page_chunk_index": 1,
+          "score": 0.532104
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 1,
+          "rerank_score": 0.809775,
+          "relevant": false,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 3,
+          "page_chunk_index": 0
+        },
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 2,
+          "rerank_score": 0.035298,
+          "relevant": false,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 2,
+          "page_chunk_index": 2
+        },
+        {
+          "retrieval_rank": 5,
+          "rerank_rank": 3,
+          "rerank_score": 0.025784,
+          "relevant": false,
+          "point_id": "dd76e0c1-3afa-5d3c-a6da-965ece7d5846",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 0
+        }
+      ]
+    },
+    {
+      "id": "Q010",
+      "query": "Does Aviva cover a home EV charging point and what is the maximum amount payable per claim?",
+      "expected_answer_status": "covered",
+      "relevant_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 28
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "recall": 1.0,
+        "reciprocal_rank": 0.5
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "precision": 0.3333,
+        "ndcg": 0.6309
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "precision": 0.3333,
+        "ndcg": 0.6309
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": false,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 3,
+          "page_chunk_index": 0,
+          "score": 0.617219
+        },
+        {
+          "rank": 2,
+          "relevant": true,
+          "point_id": "ee8ab0c8-d863-54d4-a8cb-2b3c0f0c1deb",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 28,
+          "page_chunk_index": 4,
+          "score": 0.593321
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "81828d4c-792d-54ed-b704-804d366b2ede",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 11,
+          "page_chunk_index": 2,
+          "score": 0.586036
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "83685e53-5287-5fb0-979a-19a98bca2784",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 23,
+          "page_chunk_index": 4,
+          "score": 0.564966
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 2,
+          "page_chunk_index": 2,
+          "score": 0.55615
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "a148256e-8001-587f-afa8-8052f2e24ef2",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 5,
+          "page_chunk_index": 5,
+          "score": 0.555788
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "d98db7b3-bfe1-5bf8-a2be-a063f83225be",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 20,
+          "page_chunk_index": 7,
+          "score": 0.554657
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "06504710-1662-5350-9135-37c5ca7fad88",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 36,
+          "page_chunk_index": 0,
+          "score": 0.547395
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "3b5b4a80-a617-5bdc-9fe0-a212b191545d",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 1,
+          "score": 0.545895
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "73f81891-0360-51db-95b4-2561d21eec13",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 5,
+          "page_chunk_index": 3,
+          "score": 0.543864
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 1,
+          "rerank_score": 0.531129,
+          "relevant": false,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 3,
+          "page_chunk_index": 0
+        },
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 2,
+          "rerank_score": 0.492976,
+          "relevant": true,
+          "point_id": "ee8ab0c8-d863-54d4-a8cb-2b3c0f0c1deb",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 28,
+          "page_chunk_index": 4
+        },
+        {
+          "retrieval_rank": 4,
+          "rerank_rank": 3,
+          "rerank_score": 0.041019,
+          "relevant": false,
+          "point_id": "83685e53-5287-5fb0-979a-19a98bca2784",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 23,
+          "page_chunk_index": 4
+        }
+      ]
+    },
+    {
+      "id": "Q011",
+      "query": "Will Aviva cover a home charging point rated above 32 amps?",
+      "expected_answer_status": "not_covered",
+      "relevant_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 29
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "recall": 1.0,
+        "reciprocal_rank": 0.5
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "precision": 0.3333,
+        "ndcg": 0.6309
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.3333,
+        "ndcg": 1.0
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": false,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 3,
+          "page_chunk_index": 0,
+          "score": 0.593303
+        },
+        {
+          "rank": 2,
+          "relevant": true,
+          "point_id": "4e892092-da42-5687-8cc9-f4698b993044",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 29,
+          "page_chunk_index": 5,
+          "score": 0.555621
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "ee8ab0c8-d863-54d4-a8cb-2b3c0f0c1deb",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 28,
+          "page_chunk_index": 4,
+          "score": 0.532942
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "81828d4c-792d-54ed-b704-804d366b2ede",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 11,
+          "page_chunk_index": 2,
+          "score": 0.527311
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "e1733e8d-42c4-58eb-9fb9-08d0a84dd30d",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 11,
+          "page_chunk_index": 5,
+          "score": 0.510521
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "a148256e-8001-587f-afa8-8052f2e24ef2",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 5,
+          "page_chunk_index": 5,
+          "score": 0.509129
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "6d22714c-3379-576b-bdfd-a15d783ede32",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 22,
+          "page_chunk_index": 0,
+          "score": 0.504468
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "81cb386a-41ca-5857-be79-2e88c2b2359a",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 9,
+          "page_chunk_index": 4,
+          "score": 0.503476
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "06504710-1662-5350-9135-37c5ca7fad88",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 36,
+          "page_chunk_index": 0,
+          "score": 0.489729
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "d98db7b3-bfe1-5bf8-a2be-a063f83225be",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 20,
+          "page_chunk_index": 7,
+          "score": 0.481843
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 1,
+          "rerank_score": 0.471176,
+          "relevant": true,
+          "point_id": "4e892092-da42-5687-8cc9-f4698b993044",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 29,
+          "page_chunk_index": 5
+        },
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 2,
+          "rerank_score": 0.200466,
+          "relevant": false,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 3,
+          "page_chunk_index": 0
+        },
+        {
+          "retrieval_rank": 3,
+          "rerank_rank": 3,
+          "rerank_score": 0.010747,
+          "relevant": false,
+          "point_id": "ee8ab0c8-d863-54d4-a8cb-2b3c0f0c1deb",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 28,
+          "page_chunk_index": 4
+        }
+      ]
+    },
+    {
+      "id": "Q012",
+      "query": "If I cancel my motor policy after the cover has started, will I receive a premium refund?",
+      "expected_answer_status": "conditional",
+      "relevant_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 33
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "recall": 1.0,
+        "reciprocal_rank": 0.5
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "precision": 0.3333,
+        "ndcg": 0.6309
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.3333,
+        "ndcg": 1.0
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": false,
+          "point_id": "b73eb017-b74e-500b-ac15-611ad021d446",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 3,
+          "page_chunk_index": 6,
+          "score": 0.707816
+        },
+        {
+          "rank": 2,
+          "relevant": true,
+          "point_id": "f91201d6-9b0b-55f9-af5c-5f9a8cb0bc2e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 33,
+          "page_chunk_index": 0,
+          "score": 0.692847
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "e9bd2ff2-27d6-5175-8b4c-d0282c51b782",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 5,
+          "page_chunk_index": 9,
+          "score": 0.684434
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "62dcfb6b-9900-55eb-ac24-3aec132c141f",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 5,
+          "page_chunk_index": 1,
+          "score": 0.682047
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "9d379623-c47a-5e18-8461-a288db1606b8",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 21,
+          "page_chunk_index": 4,
+          "score": 0.669012
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "c7c5af75-7e2e-5fc2-9a47-2aa2d9b785e5",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 26,
+          "page_chunk_index": 2,
+          "score": 0.66429
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "5a529926-ff32-52d3-940f-e73bddeec868",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 4,
+          "page_chunk_index": 4,
+          "score": 0.663502
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "e63a673f-337f-5e01-a5f3-71c82e01d02f",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 21,
+          "page_chunk_index": 5,
+          "score": 0.656434
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "bc88f729-0c7e-59cd-82de-a2f4b74e3b06",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 7,
+          "page_chunk_index": 1,
+          "score": 0.649205
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "5db820f9-62cf-5f1f-87a5-d40fc6354e35",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 36,
+          "page_chunk_index": 1,
+          "score": 0.644948
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 1,
+          "rerank_score": 0.989359,
+          "relevant": true,
+          "point_id": "f91201d6-9b0b-55f9-af5c-5f9a8cb0bc2e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 33,
+          "page_chunk_index": 0
+        },
+        {
+          "retrieval_rank": 5,
+          "rerank_rank": 2,
+          "rerank_score": 0.767098,
+          "relevant": false,
+          "point_id": "9d379623-c47a-5e18-8461-a288db1606b8",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 21,
+          "page_chunk_index": 4
+        },
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 3,
+          "rerank_score": 0.758114,
+          "relevant": false,
+          "point_id": "b73eb017-b74e-500b-ac15-611ad021d446",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 3,
+          "page_chunk_index": 6
+        }
+      ]
+    },
+    {
+      "id": "Q013",
+      "query": "If I have already made a claim and Aviva cannot recover the full claim amount from the responsible third party, will I receive a premium refund when I cancel the policy?",
+      "expected_answer_status": "not_covered",
+      "relevant_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 32
+        },
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 33
+        }
+      ],
+      "candidate_retrieval": {
+        "k": 10,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "recall": 1.0,
+        "reciprocal_rank": 0.5
+      },
+      "baseline_top_n": {
+        "k": 3,
+        "first_relevant_rank": 2,
+        "hit": 1.0,
+        "reciprocal_rank": 0.5,
+        "precision": 0.6667,
+        "ndcg": 0.6934
+      },
+      "reranked_top_n": {
+        "k": 3,
+        "first_relevant_rank": 1,
+        "hit": 1.0,
+        "reciprocal_rank": 1.0,
+        "precision": 0.6667,
+        "ndcg": 1.0
+      },
+      "baseline_trace": [
+        {
+          "rank": 1,
+          "relevant": false,
+          "point_id": "44ca27fc-47a5-5b16-8d8e-8fd4622477d4",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 5,
+          "page_chunk_index": 8,
+          "score": 0.681467
+        },
+        {
+          "rank": 2,
+          "relevant": true,
+          "point_id": "34977574-97e1-5816-9a42-f38b4cc5e870",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 33,
+          "page_chunk_index": 3,
+          "score": 0.675021
+        },
+        {
+          "rank": 3,
+          "relevant": true,
+          "point_id": "f91201d6-9b0b-55f9-af5c-5f9a8cb0bc2e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 33,
+          "page_chunk_index": 0,
+          "score": 0.674858
+        },
+        {
+          "rank": 4,
+          "relevant": true,
+          "point_id": "a59fc99a-23e7-5ca0-82ae-3b32b315492a",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 32,
+          "page_chunk_index": 3,
+          "score": 0.670939
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "b73eb017-b74e-500b-ac15-611ad021d446",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 3,
+          "page_chunk_index": 6,
+          "score": 0.650912
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "e0081a86-0585-5e7f-a4c0-e61d595dbeae",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 5,
+          "page_chunk_index": 10,
+          "score": 0.650799
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "62dcfb6b-9900-55eb-ac24-3aec132c141f",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 5,
+          "page_chunk_index": 1,
+          "score": 0.647845
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "19362d98-7150-51f7-9784-d19e0cd5736d",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 5,
+          "page_chunk_index": 7,
+          "score": 0.645949
+        },
+        {
+          "rank": 9,
+          "relevant": true,
+          "point_id": "e16ec8b5-ff32-59d3-b22e-8dc3c92942b7",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 32,
+          "page_chunk_index": 2,
+          "score": 0.638027
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "bc88f729-0c7e-59cd-82de-a2f4b74e3b06",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 7,
+          "page_chunk_index": 1,
+          "score": 0.630527
+        }
+      ],
+      "rerank_trace": [
+        {
+          "retrieval_rank": 9,
+          "rerank_rank": 1,
+          "rerank_score": 0.997516,
+          "relevant": true,
+          "point_id": "e16ec8b5-ff32-59d3-b22e-8dc3c92942b7",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 32,
+          "page_chunk_index": 2
+        },
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 2,
+          "rerank_score": 0.994489,
+          "relevant": true,
+          "point_id": "34977574-97e1-5816-9a42-f38b4cc5e870",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+          "page_number": 33,
+          "page_chunk_index": 3
+        },
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 3,
+          "rerank_score": 0.916158,
+          "relevant": false,
+          "point_id": "44ca27fc-47a5-5b16-8d8e-8fd4622477d4",
+          "document_id": "Zurich_Car_Insurance",
+          "source_file": "Zurich_Car_Insurance.pdf",
+          "page_number": 5,
+          "page_chunk_index": 8
+        }
+      ]
+    }
+  ]
+}

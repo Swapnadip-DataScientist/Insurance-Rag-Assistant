@@ -1,0 +1,971 @@
+{
+  "created_at_utc": "2026-08-30T18:22:03.994527+00:00",
+  "evaluation_type": "grounded_generation",
+  "configuration": {
+    "embedding_model": "BAAI/bge-m3",
+    "reranker_model": "BAAI/bge-reranker-v2-m3",
+    "generator_model": "qwen3.5:4b-q4_K_M",
+    "candidate_k": 10,
+    "rerank_k": 2
+  },
+  "summary": {
+    "query_count": 13,
+    "citation_correctness": 0.8077,
+    "citation_recall": 0.8462,
+    "answer_status_accuracy": 0.8462,
+    "groundedness": 0.9231,
+    "answer_correctness": 0.9231,
+    "unsupported_claim_free_rate": 0.9231,
+    "mean_generation_latency_ms": 52696.0511
+  },
+  "queries": [
+    {
+      "id": "Q001",
+      "query": "Whether I can receive claim for Winter sports Onpiste skiing?",
+      "expected": {
+        "answer_status": "conditional",
+        "relevant_sources": [
+          {
+            "document_id": "Travel_Terms_And_Conditions_Outbound",
+            "page_number": 10
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "conditional",
+        "answer": "You may be covered for winter sports on-piste skiing if the winter-sports extension has been purchased, as this activity is an exception to the general exclusion.",
+        "citations": [
+          "S1"
+        ],
+        "conditions": [
+          "The winter-sports extension must have been purchased."
+        ],
+        "limitations": [
+          "The evidence does not confirm whether the winter-sports extension was purchased."
+        ],
+        "sources": [
+          {
+            "citation_id": "S1",
+            "point_id": "196ebc06-e23e-5140-9d1b-a55e807b2f38",
+            "score": 0.56761026,
+            "document_id": "Travel_Terms_And_Conditions_Outbound",
+            "source_file": "Travel_Terms_And_Conditions_Outbound.pdf",
+            "page_number": 10,
+            "page_chunk_index": 6
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 1.0,
+        "citation_recall": 1.0,
+        "answer_status_correctness": 1.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer correctly identifies that coverage for on-piste skiing is conditional upon purchasing the winter-sports extension. This is directly supported by Evidence_1, which lists 'wintersports(except recreational on-piste skiing and snowboarding, if winter sports extension is purchased)' as an exception to the general exclusion.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 1,
+          "rerank_score": 0.129844,
+          "point_id": "196ebc06-e23e-5140-9d1b-a55e807b2f38",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "page_number": 10,
+          "relevant": true
+        },
+        {
+          "retrieval_rank": 10,
+          "rerank_rank": 2,
+          "rerank_score": 0.000791,
+          "point_id": "a94ea6de-8735-562f-bdc1-8268fa652606",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "page_number": 12,
+          "relevant": false
+        }
+      ],
+      "generation_latency_ms": 61096.545
+    },
+    {
+      "id": "Q002",
+      "query": "If my vehicle is damaged in an accident, will Aviva arrange recovery and repair?",
+      "expected": {
+        "answer_status": "conditional",
+        "relevant_sources": [
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 6,
+            "page_chunk_index": 0,
+            "point_id": "6e237a6a-632d-55b6-a63d-f3659b0ac836"
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "conditional",
+        "answer": "Aviva may arrange recovery and repair for your vehicle if you have selected Aviva, Aviva Gold, or Aviva Platinum cover levels. If you use an approved repairer, Aviva provides benefits including collection and return of the vehicle, a courtesy vehicle, and reduced customer involvement prior to the start date.",
+        "citations": [
+          "S1",
+          "S2"
+        ],
+        "conditions": [
+          "The policyholder must have selected Aviva, Aviva Gold, or Aviva Platinum cover levels.",
+          "Using an approved repairer is required to receive specific benefits such as vehicle collection and a courtesy vehicle."
+        ],
+        "limitations": [
+          "The evidence does not confirm which cover level the policyholder has selected.",
+          "The evidence does not confirm whether the user will use an approved or non-approved repairer."
+        ],
+        "sources": [
+          {
+            "citation_id": "S1",
+            "point_id": "5896a327-3399-5940-bd82-7961147a88d7",
+            "score": 0.62346613,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 22,
+            "page_chunk_index": 1
+          },
+          {
+            "citation_id": "S2",
+            "point_id": "81cb386a-41ca-5857-be79-2e88c2b2359a",
+            "score": 0.63311577,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 9,
+            "page_chunk_index": 4
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 0.0,
+        "citation_recall": 0.0,
+        "answer_status_correctness": 1.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer accurately reflects the policy evidence. It correctly identifies that recovery and repair (specifically 'Aviva collection and return of your vehicle') are conditional on selecting Aviva, Aviva Gold, or Aviva Platinum cover levels, as stated in Evidence_1. It also correctly notes that benefits like a courtesy vehicle depend on using an approved repairer, per Evidence_2. No unsupported claims were made.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 5,
+          "rerank_rank": 1,
+          "rerank_score": 0.33411,
+          "point_id": "5896a327-3399-5940-bd82-7961147a88d7",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 22,
+          "relevant": false
+        },
+        {
+          "retrieval_rank": 3,
+          "rerank_rank": 2,
+          "rerank_score": 0.283193,
+          "point_id": "81cb386a-41ca-5857-be79-2e88c2b2359a",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 9,
+          "relevant": false
+        }
+      ],
+      "generation_latency_ms": 69526.936
+    },
+    {
+      "id": "Q003",
+      "query": "If the policy is cancelled after 30 days whether it will be refund or any charges will be applied?",
+      "expected": {
+        "answer_status": "conditional",
+        "relevant_sources": [
+          {
+            "document_id": "Zurich_Car_Insurance",
+            "page_number": 5
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "conditional",
+        "answer": "If the policy is cancelled after 30 days, a refund of the premium will generally be issued. However, if there has been a claim paid or outstanding when the policy is cancelled, no refund will be given. Additionally, if cover under parts B–H is cancelled more than 14 days after receiving the policy independently of Part A, there will be no refund.",
+        "citations": [
+          "S1",
+          "S2"
+        ],
+        "conditions": [
+          "No claim has been paid or is outstanding when the policy is cancelled.",
+          "The cancellation occurs more than 14 days after receiving the policy (or renewal date) and independently of Part A."
+        ],
+        "limitations": [
+          "The evidence does not confirm whether a claim was paid or outstanding at the time of cancellation.",
+          "The evidence does not confirm whether the cancellation relates to Part A or parts B–H.",
+          "Actual settlement depends on the complete policy, schedule, endorsements and claim circumstances."
+        ],
+        "sources": [
+          {
+            "citation_id": "S1",
+            "point_id": "e0081a86-0585-5e7f-a4c0-e61d595dbeae",
+            "score": 0.707159,
+            "document_id": "Zurich_Car_Insurance",
+            "source_file": "Zurich_Car_Insurance.pdf",
+            "page_number": 5,
+            "page_chunk_index": 10
+          },
+          {
+            "citation_id": "S2",
+            "point_id": "44ca27fc-47a5-5b16-8d8e-8fd4622477d4",
+            "score": 0.7660552,
+            "document_id": "Zurich_Car_Insurance",
+            "source_file": "Zurich_Car_Insurance.pdf",
+            "page_number": 5,
+            "page_chunk_index": 8
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 1.0,
+        "citation_recall": 1.0,
+        "answer_status_correctness": 1.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer accurately reflects the conditions in the provided policy evidence regarding refunds after 30 days (which is more than 14 days). It correctly identifies that a refund is generally issued unless there are outstanding claims or specific exclusions for Parts B-H. The mention of the £50 cancellation charge and the 14-day rule for Parts B-H aligns with EVIDENCE_1.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 5,
+          "rerank_rank": 1,
+          "rerank_score": 0.824837,
+          "point_id": "e0081a86-0585-5e7f-a4c0-e61d595dbeae",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 5,
+          "relevant": true
+        },
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 2,
+          "rerank_score": 0.782948,
+          "point_id": "44ca27fc-47a5-5b16-8d8e-8fd4622477d4",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 5,
+          "relevant": true
+        }
+      ],
+      "generation_latency_ms": 70408.12
+    },
+    {
+      "id": "Q004",
+      "query": "If my child seat is fitted in the vehicle and I make an accident claim, will Aviva pay to replace the child seat even if there is no visible damage?",
+      "expected": {
+        "answer_status": "covered",
+        "relevant_sources": [
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 10
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "covered",
+        "answer": "Aviva will pay the cost to replace a child seat fitted in your vehicle even if there is no apparent damage.",
+        "citations": [
+          "S1"
+        ],
+        "conditions": [],
+        "limitations": [],
+        "sources": [
+          {
+            "citation_id": "S1",
+            "point_id": "8dcb7beb-5c97-5a0d-b9d0-e9ae0d2e3030",
+            "score": 0.6069757,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 10,
+            "page_chunk_index": 4
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 1.0,
+        "citation_recall": 1.0,
+        "answer_status_correctness": 1.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer accurately reflects the policy evidence (EVIDENCE_1), which states that Aviva will pay to replace child seats fitted in the vehicle even if there is no apparent damage. All substantive claims are supported by the text.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 1,
+          "rerank_score": 0.995037,
+          "point_id": "8dcb7beb-5c97-5a0d-b9d0-e9ae0d2e3030",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 10,
+          "relevant": true
+        },
+        {
+          "retrieval_rank": 6,
+          "rerank_rank": 2,
+          "rerank_score": 0.652667,
+          "point_id": "1e97f73a-545d-5f1f-ba4a-8893873dcb5e",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 12,
+          "relevant": false
+        }
+      ],
+      "generation_latency_ms": 42007.939
+    },
+    {
+      "id": "Q005",
+      "query": "Will Aviva's repair guarantee cover damage caused by normal wear and tear?",
+      "expected": {
+        "answer_status": "not_covered",
+        "relevant_sources": [
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 10
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "not_covered",
+        "answer": "Aviva's repair guarantee explicitly excludes coverage for damage arising from deterioration and wear and tear.",
+        "citations": [
+          "S2"
+        ],
+        "conditions": [],
+        "limitations": [],
+        "sources": [
+          {
+            "citation_id": "S2",
+            "point_id": "3dc18350-4107-597d-9867-0657b63177ac",
+            "score": 0.5361767,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 10,
+            "page_chunk_index": 5
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 1.0,
+        "citation_recall": 1.0,
+        "answer_status_correctness": 1.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer correctly states that Aviva's repair guarantee excludes coverage for wear and tear, which is directly supported by EVIDENCE_1. The evidence explicitly lists 'wear and tear' under the exclusions for the Repair Guarantee.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 8,
+          "rerank_rank": 1,
+          "rerank_score": 0.384802,
+          "point_id": "54f3ae45-1e65-5fc9-aab3-4e39d420a146",
+          "document_id": "Swiss Re Contractors_all_risks_insurance_en",
+          "page_number": 26,
+          "relevant": false
+        },
+        {
+          "retrieval_rank": 10,
+          "rerank_rank": 2,
+          "rerank_score": 0.099043,
+          "point_id": "3dc18350-4107-597d-9867-0657b63177ac",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 10,
+          "relevant": true
+        }
+      ],
+      "generation_latency_ms": 41383.053
+    },
+    {
+      "id": "Q006",
+      "query": "If I make a claim only for broken windscreen glass, will my no claim discount be affected?",
+      "expected": {
+        "answer_status": "covered",
+        "relevant_sources": [
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 20
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "covered",
+        "answer": "Making a claim only for broken windscreen glass will not affect your no claim discount, provided the claim is solely under the relevant section of the policy.",
+        "citations": [
+          "S1",
+          "S2"
+        ],
+        "conditions": [],
+        "limitations": [],
+        "sources": [
+          {
+            "citation_id": "S1",
+            "point_id": "161a2fa9-6d96-5982-9980-df3e8bef3336",
+            "score": 0.6738926,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 20,
+            "page_chunk_index": 3
+          },
+          {
+            "citation_id": "S2",
+            "point_id": "747546f2-765d-5eb2-8172-e4035edd0d4c",
+            "score": 0.6682727,
+            "document_id": "Zurich_Car_Insurance",
+            "source_file": "Zurich_Car_Insurance.pdf",
+            "page_number": 12,
+            "page_chunk_index": 8
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 0.5,
+        "citation_recall": 1.0,
+        "answer_status_correctness": 1.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer correctly states that a claim for broken windscreen glass will not affect the no claim discount. This is directly supported by EVIDENCE_1 (Aviva), which explicitly states 'A claim solely under this section will not affect your no claim discount' regarding damaged glass forming part of the roof, and EVIDENCE_2 (Zurich), which states 'As long as there is no claim under any other section of this policy, any payment for glass replacement will not affect your no claim discount.' The answer accurately reflects the condition that the claim must be solely under the relevant section/glass cover.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 1,
+          "rerank_score": 0.984651,
+          "point_id": "161a2fa9-6d96-5982-9980-df3e8bef3336",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 20,
+          "relevant": true
+        },
+        {
+          "retrieval_rank": 3,
+          "rerank_rank": 2,
+          "rerank_score": 0.963655,
+          "point_id": "747546f2-765d-5eb2-8172-e4035edd0d4c",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 12,
+          "relevant": false
+        }
+      ],
+      "generation_latency_ms": 41028.17
+    },
+    {
+      "id": "Q007",
+      "query": "Can I use my Aviva motor insurance when driving another vehicle?",
+      "expected": {
+        "answer_status": "conditional",
+        "relevant_sources": [
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 15
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "conditional",
+        "answer": "You can use your Aviva motor insurance to drive another vehicle, but the cover is limited to third-party damages only and applies only to the policyholder.",
+        "citations": [
+          "S1"
+        ],
+        "conditions": [
+          "The driver must be the policyholder."
+        ],
+        "limitations": [
+          "The evidence does not confirm whether the policyholder satisfies the requirement that they are the policyholder.",
+          "The evidence does not confirm if additional cover beyond third-party damages is available for this scenario."
+        ],
+        "sources": [
+          {
+            "citation_id": "S1",
+            "point_id": "60f025e1-1db2-5558-ab0e-dcd8824f51e2",
+            "score": 0.56429476,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 15,
+            "page_chunk_index": 3
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 1.0,
+        "citation_recall": 1.0,
+        "answer_status_correctness": 1.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer accurately reflects the policy evidence. It correctly states that cover is available for driving another vehicle (implied by 'available for the policyholder' in the context of the question) and explicitly lists the two conditions found in the evidence: it is limited to third-party damages only and applies only to the policyholder. No unsupported claims were made.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 9,
+          "rerank_rank": 1,
+          "rerank_score": 0.520886,
+          "point_id": "60f025e1-1db2-5558-ab0e-dcd8824f51e2",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 15,
+          "relevant": true
+        },
+        {
+          "retrieval_rank": 3,
+          "rerank_rank": 2,
+          "rerank_score": 0.373324,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 2,
+          "relevant": false
+        }
+      ],
+      "generation_latency_ms": 47607.051
+    },
+    {
+      "id": "Q008",
+      "query": "Are my personal belongings inside the vehicle covered if they are damaged accidentally?",
+      "expected": {
+        "answer_status": "conditional",
+        "relevant_sources": [
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 17
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "covered",
+        "answer": "Personal belongings inside the vehicle are covered for loss or damage caused by fire, theft, or accidental means. The maximum amount payable is shown in your schedule.",
+        "citations": [
+          "S1"
+        ],
+        "conditions": [],
+        "limitations": [],
+        "sources": [
+          {
+            "citation_id": "S1",
+            "point_id": "e05ffb68-736c-5162-b87c-31fb2bc90b3d",
+            "score": 0.6970963,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 17,
+            "page_chunk_index": 1
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 1.0,
+        "citation_recall": 1.0,
+        "answer_status_correctness": 0.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer accurately reflects the policy evidence. It correctly identifies that personal belongings inside the vehicle are covered for accidental damage (specifically 'accidental means'), fire, or theft. It also correctly notes that the maximum payable amount is found in the schedule, as stated in the text. No unsupported claims were made.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 1,
+          "rerank_score": 0.846003,
+          "point_id": "e05ffb68-736c-5162-b87c-31fb2bc90b3d",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 17,
+          "relevant": true
+        },
+        {
+          "retrieval_rank": 6,
+          "rerank_rank": 2,
+          "rerank_score": 0.170066,
+          "point_id": "87119b7c-6d58-514e-9e71-277baa1b975d",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 4,
+          "relevant": false
+        }
+      ],
+      "generation_latency_ms": 40169.853
+    },
+    {
+      "id": "Q009",
+      "query": "Will Aviva recover my electric vehicle if the battery runs out of charge?",
+      "expected": {
+        "answer_status": "conditional",
+        "relevant_sources": [
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 27
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "insufficient_evidence",
+        "answer": "The provided policy evidence does not contain information regarding the recovery of an electric vehicle if its battery runs out of charge. While Section 12 mentions 'Home charging point cover' and Section 11 references 'Electric vehicle out of charge recovery', the text for these sections is not included in the supplied evidence.",
+        "citations": [
+          "S1",
+          "S2"
+        ],
+        "conditions": [],
+        "limitations": [
+          "The policy text for Section 11 'Electric vehicle out of charge recovery' and Section 12 'Home charging point cover' is not provided in the evidence.",
+          "It is unclear whether the user has selected optional Breakdown cover or Aviva Platinum, which are prerequisites for some breakdown services mentioned in S1."
+        ],
+        "sources": [
+          {
+            "citation_id": "S1",
+            "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+            "score": 0.6314899,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 3,
+            "page_chunk_index": 0
+          },
+          {
+            "citation_id": "S2",
+            "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+            "score": 0.57920164,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 2,
+            "page_chunk_index": 2
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 0.0,
+        "citation_recall": 0.0,
+        "answer_status_correctness": 0.0,
+        "groundedness": 0.0,
+        "answer_correctness": 0.0,
+        "unsupported_claim_free": 0.0,
+        "unsupported_claims": [
+          "The provided policy evidence does not contain information regarding the recovery of an electric vehicle if its battery runs out of charge."
+        ],
+        "unsupported_claim_count": 1
+      },
+      "unsupported_claims": [
+        "The provided policy evidence does not contain information regarding the recovery of an electric vehicle if its battery runs out of charge."
+      ],
+      "judge_reason": "The generated answer claims that the evidence 'does not contain information' about EV recovery. However, Evidence_1 explicitly lists 'Section11 Electricvehicleoutofchargerecovery' and states that details are in a separate Breakdown policy booklet. The generated answer incorrectly concludes there is no information when the evidence actually confirms the existence of such coverage (albeit referring to external documentation). This contradicts the provided text.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 1,
+          "rerank_score": 0.809775,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 3,
+          "relevant": false
+        },
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 2,
+          "rerank_score": 0.035298,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 2,
+          "relevant": false
+        }
+      ],
+      "generation_latency_ms": 58669.229
+    },
+    {
+      "id": "Q010",
+      "query": "Does Aviva cover a home EV charging point and what is the maximum amount payable per claim?",
+      "expected": {
+        "answer_status": "covered",
+        "relevant_sources": [
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 28
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "covered",
+        "answer": "Aviva covers damage to a home EV charging point, including electric failure and repair costs up to £2,000 per claim. Work must be carried out by an approved engineer authorised by Homeserve.",
+        "citations": [
+          "S2"
+        ],
+        "conditions": [],
+        "limitations": [],
+        "sources": [
+          {
+            "citation_id": "S2",
+            "point_id": "ee8ab0c8-d863-54d4-a8cb-2b3c0f0c1deb",
+            "score": 0.5933212,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 28,
+            "page_chunk_index": 4
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 1.0,
+        "citation_recall": 1.0,
+        "answer_status_correctness": 1.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer accurately reflects the policy evidence. It correctly states that Aviva covers damage to a home EV charging point (including electric failure) and specifies the maximum payable amount as £2,000 per claim, which matches EVIDENCE_1 exactly. The mention of 'approved engineer authorised by Homeserve' is also supported by the text.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 1,
+          "rerank_score": 0.531129,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 3,
+          "relevant": false
+        },
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 2,
+          "rerank_score": 0.492976,
+          "point_id": "ee8ab0c8-d863-54d4-a8cb-2b3c0f0c1deb",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 28,
+          "relevant": true
+        }
+      ],
+      "generation_latency_ms": 42631.676
+    },
+    {
+      "id": "Q011",
+      "query": "Will Aviva cover a home charging point rated above 32 amps?",
+      "expected": {
+        "answer_status": "not_covered",
+        "relevant_sources": [
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 29
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "not_covered",
+        "answer": "The policy explicitly excludes coverage for charging points rated over 32 amps.",
+        "citations": [
+          "S1"
+        ],
+        "conditions": [],
+        "limitations": [],
+        "sources": [
+          {
+            "citation_id": "S1",
+            "point_id": "4e892092-da42-5687-8cc9-f4698b993044",
+            "score": 0.5556214,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 29,
+            "page_chunk_index": 5
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 1.0,
+        "citation_recall": 1.0,
+        "answer_status_correctness": 1.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer correctly states that coverage is excluded for charging points rated over 32 amps, which is directly supported by EVIDENCE_1 (\"chargingpointsover32amps\"). No unsupported claims were made.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 1,
+          "rerank_score": 0.471176,
+          "point_id": "4e892092-da42-5687-8cc9-f4698b993044",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 29,
+          "relevant": true
+        },
+        {
+          "retrieval_rank": 1,
+          "rerank_rank": 2,
+          "rerank_score": 0.200466,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 3,
+          "relevant": false
+        }
+      ],
+      "generation_latency_ms": 40889.958
+    },
+    {
+      "id": "Q012",
+      "query": "If I cancel my motor policy after the cover has started, will I receive a premium refund?",
+      "expected": {
+        "answer_status": "conditional",
+        "relevant_sources": [
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 33
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "conditional",
+        "answer": "You may receive a premium refund if you cancel your motor policy after cover has started, but the refund amount will be based on how many days are left in the insurance period you have paid for. A cancellation fee will also apply.",
+        "citations": [
+          "S1"
+        ],
+        "conditions": [
+          "The cancellation must occur after the policy cover has started."
+        ],
+        "limitations": [
+          "The exact refund amount depends on the number of days remaining in the paid insurance period.",
+          "A cancellation fee will be charged, and the specific fee structure is not detailed in the provided evidence."
+        ],
+        "sources": [
+          {
+            "citation_id": "S1",
+            "point_id": "f91201d6-9b0b-55f9-af5c-5f9a8cb0bc2e",
+            "score": 0.6928473,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 33,
+            "page_chunk_index": 0
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 1.0,
+        "citation_recall": 1.0,
+        "answer_status_correctness": 1.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer accurately reflects the policy evidence. It correctly states that a refund is conditional on the number of days remaining in the paid period and notes the existence of a cancellation fee, both of which are explicitly supported by EVIDENCE_1_START.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 1,
+          "rerank_score": 0.989359,
+          "point_id": "f91201d6-9b0b-55f9-af5c-5f9a8cb0bc2e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 33,
+          "relevant": true
+        },
+        {
+          "retrieval_rank": 5,
+          "rerank_rank": 2,
+          "rerank_score": 0.767098,
+          "point_id": "9d379623-c47a-5e18-8461-a288db1606b8",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 21,
+          "relevant": false
+        }
+      ],
+      "generation_latency_ms": 57681.176
+    },
+    {
+      "id": "Q013",
+      "query": "If I have already made a claim and Aviva cannot recover the full claim amount from the responsible third party, will I receive a premium refund when I cancel the policy?",
+      "expected": {
+        "answer_status": "not_covered",
+        "relevant_sources": [
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 32
+          },
+          {
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "page_number": 33
+          }
+        ]
+      },
+      "generated": {
+        "answer_status": "not_covered",
+        "answer": "If a claim has been made and Aviva cannot recover the full amount from the responsible third party, you will not receive a refund of premium and all premiums will be due upon cancellation.",
+        "citations": [
+          "S1",
+          "S2"
+        ],
+        "conditions": [],
+        "limitations": [],
+        "sources": [
+          {
+            "citation_id": "S1",
+            "point_id": "e16ec8b5-ff32-59d3-b22e-8dc3c92942b7",
+            "score": 0.6380266,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 32,
+            "page_chunk_index": 2
+          },
+          {
+            "citation_id": "S2",
+            "point_id": "34977574-97e1-5816-9a42-f38b4cc5e870",
+            "score": 0.675021,
+            "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+            "source_file": "Aviva_Motor_Insurance_policy_default_v15.pdf",
+            "page_number": 33,
+            "page_chunk_index": 3
+          }
+        ]
+      },
+      "metrics": {
+        "citation_correctness": 1.0,
+        "citation_recall": 1.0,
+        "answer_status_correctness": 1.0,
+        "groundedness": 1.0,
+        "answer_correctness": 1.0,
+        "unsupported_claim_free": 1.0,
+        "unsupported_claims": [],
+        "unsupported_claim_count": 0
+      },
+      "unsupported_claims": [],
+      "judge_reason": "The generated answer accurately reflects the policy evidence (EVIDENCE_1 and EVIDENCE_2). It correctly states that if a claim has been made and full recovery from a third party cannot be confirmed, no premium refund will be received and all premiums will be due upon cancellation. No unsupported claims were made.",
+      "rerank_trace": [
+        {
+          "retrieval_rank": 9,
+          "rerank_rank": 1,
+          "rerank_score": 0.997516,
+          "point_id": "e16ec8b5-ff32-59d3-b22e-8dc3c92942b7",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 32,
+          "relevant": true
+        },
+        {
+          "retrieval_rank": 2,
+          "rerank_rank": 2,
+          "rerank_score": 0.994489,
+          "point_id": "34977574-97e1-5816-9a42-f38b4cc5e870",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 33,
+          "relevant": true
+        }
+      ],
+      "generation_latency_ms": 71948.958
+    }
+  ]
+}

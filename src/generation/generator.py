@@ -7,10 +7,14 @@ import os
 import re
 import time
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime, timezone
 from typing import Any, Iterable, Sequence
 from urllib.parse import urlparse
+from src.retrieval.reranker import (
+    CrossEncoderReranker,
+    RerankerConfig,
+)
 
 
 # ============================================================================
@@ -198,7 +202,7 @@ GROUNDING RULES
 14. Return only the JSON object required by the supplied JSON schema.
 
 
-COVERAGE CLASSIFICATION RULES
+ANSWER STATUS RULES
 
 1. Use "covered" only when the evidence directly provides coverage without
    an unmet prerequisite relevant to the question.
@@ -226,6 +230,13 @@ COVERAGE CLASSIFICATION RULES
    a prerequisite, keep the status as "conditional". State the missing
    confirmation in "limitations". Do not change the status to
    "not_covered".
+
+Important:
+- Do not invent conditions.
+- Do not use general insurance knowledge.
+- Do not assume coverage depends on a schedule, cover level,
+  endorsement, or optional extension unless the evidence says so.
+- Do not change "covered" to "conditional" based on assumptions.
 
 MANDATORY EXAMPLE
 
@@ -1383,7 +1394,8 @@ def parse_args() -> argparse.Namespace:
 
     # User question and requested retrieval count.
     parser.add_argument("--query", required=True)
-    parser.add_argument("--top-k", type=int, default=5)
+    parser.add_argument("--top-k", type=int, default=10)
+    parser.add_argument("--rerank-top-n",type=int,default=3,)
 
     # Qdrant connection and collection configuration.
     parser.add_argument(
@@ -1510,6 +1522,30 @@ def main() -> None:
             duplicate_threshold=args.duplicate_threshold,
         )
 
+        # ============================================================================
+        # SECOND-STAGE CROSS-ENCODER RERANKER
+        # ============================================================================
+        # WHAT:
+        # Create the CPU cross-encoder used after dense Qdrant retrieval.
+        #
+        # WHY:
+        # BGE-M3 + Qdrant is responsible for finding a high-recall candidate pool.
+        # The cross-encoder then jointly evaluates each (query, chunk) pair and selects
+        # the most relevant evidence before it reaches Qwen.
+        #
+        # The reranker is created once for this application execution. Its underlying
+        # model is lazily loaded on the first reranking request.
+        # ============================================================================
+
+        reranker = CrossEncoderReranker(
+            RerankerConfig(
+                device="cpu",
+                batch_size=8,
+                max_length=512,
+            )
+        )
+
+
         # The `with` block guarantees that the Ollama HTTP client is closed.
         with OllamaQwenClient(ollama_config) as llm_client:
             # Fail early if Ollama is stopped or Qwen is not installed.
@@ -1529,11 +1565,73 @@ def main() -> None:
                 score_threshold=args.score_threshold,
             )
 
+            reranked_results = reranker.rerank_candidates(
+                query=args.query,
+                candidates=retrieval_response.results,
+                top_n=args.rerank_top_n,
+            )
+
+            reranked_candidates = tuple(
+                result.candidate
+                for result in reranked_results
+            )
+
+            # ============================================================================
+            # BUILD RERANKED RETRIEVAL RESPONSE
+            # ============================================================================
+            # GroundedGenerator already expects a RetrievalResponse, so do not redesign
+            # its interface.
+            #
+            # dataclasses.replace() creates a new RetrievalResponse while preserving the
+            # original query, rejected candidates, candidate counts and other metadata.
+            #
+            # Only:
+            #   - results
+            #   - returned_count
+            #   - diagnostics
+            #
+            # are updated to represent the final reranked evidence.
+            # ============================================================================
+
+            reranked_diagnostics = {
+                **retrieval_response.diagnostics,
+                "reranker": {
+                    "enabled": True,
+                    "input_count": len(
+                        retrieval_response.results
+                    ),
+                    "output_count": len(
+                        reranked_candidates
+                    ),
+                    "top_n": args.rerank_top_n,
+                    "ranking": [
+                        {
+                            "rerank_rank": item.rerank_rank,
+                            "retrieval_rank": item.retrieval_rank,
+                            "rerank_score": round(
+                                item.rerank_score,
+                                6,
+                            ),
+                        }
+                        for item in reranked_results
+                    ],
+                },
+            }
+
+            retrieval_response = replace(
+                retrieval_response,
+                results=reranked_candidates,
+                returned_count=len(
+                    reranked_candidates
+                ),
+                diagnostics=reranked_diagnostics,
+            )
+
             # Create the grounded generation service.
             generator = GroundedGenerator(
                 llm_client=llm_client,
                 config=GenerationConfig(
-                    max_evidence_chunks=args.top_k,
+                    max_evidence_chunks=args.rerank_top_n,
                 ),
             )
 

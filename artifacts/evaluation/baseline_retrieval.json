@@ -1,0 +1,337 @@
+{
+  "created_at_utc": "2026-08-30T12:34:15.114745+00:00",
+  "evaluation_type": "baseline_retrieval",
+  "top_k": 10,
+  "summary": {
+    "query_count": 3,
+    "hit_at_10": 1.0,
+    "recall_at_10": 1.0,
+    "mrr_at_10": 0.7222
+  },
+  "queries": [
+    {
+      "id": "Q001",
+      "query": "Whether I can receive claim for Winter sports Onpiste skiing?",
+      "expected_sources": [
+        {
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "page_number": 10
+        }
+      ],
+      "metrics": {
+        "hit_at_10": 1.0,
+        "recall_at_10": 1.0,
+        "rr_at_10": 1.0,
+        "first_relevant_rank": 1
+      },
+      "retrieved_results": [
+        {
+          "rank": 1,
+          "relevant": true,
+          "point_id": "196ebc06-e23e-5140-9d1b-a55e807b2f38",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "page_number": 10,
+          "page_chunk_index": 6,
+          "score": 0.56761
+        },
+        {
+          "rank": 2,
+          "relevant": false,
+          "point_id": "a08b2340-8a15-5a26-96d2-657e8ea4818e",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "page_number": 3,
+          "page_chunk_index": 18,
+          "score": 0.548495
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "0b77c445-0c64-5d0a-b3ef-383b89e85dff",
+          "document_id": "QIC_Personal_accident_insurance",
+          "page_number": 13,
+          "page_chunk_index": 1,
+          "score": 0.534712
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "af4c906d-ed23-566a-b375-b225671985fe",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "page_number": 12,
+          "page_chunk_index": 11,
+          "score": 0.529841
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "9754bcfd-3072-5401-8a82-593aa31a9cf9",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "page_number": 12,
+          "page_chunk_index": 13,
+          "score": 0.529197
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "d36ce7d2-b305-5a09-930e-45c87eba2a2c",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 23,
+          "page_chunk_index": 4,
+          "score": 0.528831
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "e05ffb68-736c-5162-b87c-31fb2bc90b3d",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 17,
+          "page_chunk_index": 1,
+          "score": 0.528223
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "bde0332a-4154-5c99-af6e-56ffdcfa8161",
+          "document_id": "QIC_Home_Terms_And_Conditions",
+          "page_number": 9,
+          "page_chunk_index": 6,
+          "score": 0.523474
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "e769670d-012d-55fa-9ae5-365d1dab38b4",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "page_number": 12,
+          "page_chunk_index": 3,
+          "score": 0.522003
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "a94ea6de-8735-562f-bdc1-8268fa652606",
+          "document_id": "Travel_Terms_And_Conditions_Outbound",
+          "page_number": 12,
+          "page_chunk_index": 0,
+          "score": 0.516346
+        }
+      ]
+    },
+    {
+      "id": "Q002",
+      "query": "What should I do if my car is involved in accident in case of Aviva Insurance Car?",
+      "expected_sources": [
+        {
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 6
+        }
+      ],
+      "metrics": {
+        "hit_at_10": 1.0,
+        "recall_at_10": 1.0,
+        "rr_at_10": 0.1667,
+        "first_relevant_rank": 6
+      },
+      "retrieved_results": [
+        {
+          "rank": 1,
+          "relevant": false,
+          "point_id": "06504710-1662-5350-9135-37c5ca7fad88",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 36,
+          "page_chunk_index": 0,
+          "score": 0.652553
+        },
+        {
+          "rank": 2,
+          "relevant": false,
+          "point_id": "5896a327-3399-5940-bd82-7961147a88d7",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 22,
+          "page_chunk_index": 1,
+          "score": 0.652285
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "753d9d1b-a518-5ccc-a02c-5a4840c8180e",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 2,
+          "page_chunk_index": 2,
+          "score": 0.647633
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "81828d4c-792d-54ed-b704-804d366b2ede",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 11,
+          "page_chunk_index": 2,
+          "score": 0.620453
+        },
+        {
+          "rank": 5,
+          "relevant": false,
+          "point_id": "5a68b4c5-aa0a-5c3b-803d-b007c176f2aa",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 1,
+          "page_chunk_index": 0,
+          "score": 0.609324
+        },
+        {
+          "rank": 6,
+          "relevant": true,
+          "point_id": "6e237a6a-632d-55b6-a63d-f3659b0ac836",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 6,
+          "page_chunk_index": 0,
+          "score": 0.602759
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "d98db7b3-bfe1-5bf8-a2be-a063f83225be",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 20,
+          "page_chunk_index": 7,
+          "score": 0.599223
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "dd76e0c1-3afa-5d3c-a6da-965ece7d5846",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 9,
+          "page_chunk_index": 0,
+          "score": 0.596146
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "b174f20f-705f-5ad1-8892-b9de6db8ee98",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 5,
+          "page_chunk_index": 4,
+          "score": 0.595425
+        },
+        {
+          "rank": 10,
+          "relevant": false,
+          "point_id": "87afefbb-87d4-5e54-bf58-50108edac369",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 3,
+          "page_chunk_index": 0,
+          "score": 0.590119
+        }
+      ]
+    },
+    {
+      "id": "Q003",
+      "query": "If the policy is cancelled after 30 days whether it will be refund or any charges will be applied?",
+      "expected_sources": [
+        {
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 5
+        }
+      ],
+      "metrics": {
+        "hit_at_10": 1.0,
+        "recall_at_10": 1.0,
+        "rr_at_10": 1.0,
+        "first_relevant_rank": 1
+      },
+      "retrieved_results": [
+        {
+          "rank": 1,
+          "relevant": true,
+          "point_id": "44ca27fc-47a5-5b16-8d8e-8fd4622477d4",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 5,
+          "page_chunk_index": 8,
+          "score": 0.766055
+        },
+        {
+          "rank": 2,
+          "relevant": false,
+          "point_id": "3998bab3-7404-5222-8131-c8a61e24c870",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 3,
+          "page_chunk_index": 5,
+          "score": 0.729723
+        },
+        {
+          "rank": 3,
+          "relevant": false,
+          "point_id": "5aa9b874-2561-5c9d-b8fa-4eb5da8aea21",
+          "document_id": "Aviva_Motor_Insurance_policy_default_v15",
+          "page_number": 33,
+          "page_chunk_index": 1,
+          "score": 0.729015
+        },
+        {
+          "rank": 4,
+          "relevant": false,
+          "point_id": "df03a418-2dc4-5d04-a2dd-ac6949e6108f",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 16,
+          "page_chunk_index": 3,
+          "score": 0.708651
+        },
+        {
+          "rank": 5,
+          "relevant": true,
+          "point_id": "e0081a86-0585-5e7f-a4c0-e61d595dbeae",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 5,
+          "page_chunk_index": 10,
+          "score": 0.707159
+        },
+        {
+          "rank": 6,
+          "relevant": false,
+          "point_id": "112a1387-31b0-55da-b859-b10b04b61183",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 6,
+          "page_chunk_index": 3,
+          "score": 0.685145
+        },
+        {
+          "rank": 7,
+          "relevant": false,
+          "point_id": "9d379623-c47a-5e18-8461-a288db1606b8",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 21,
+          "page_chunk_index": 4,
+          "score": 0.67082
+        },
+        {
+          "rank": 8,
+          "relevant": false,
+          "point_id": "bc88f729-0c7e-59cd-82de-a2f4b74e3b06",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 7,
+          "page_chunk_index": 1,
+          "score": 0.66885
+        },
+        {
+          "rank": 9,
+          "relevant": false,
+          "point_id": "c7c5af75-7e2e-5fc2-9a47-2aa2d9b785e5",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 26,
+          "page_chunk_index": 2,
+          "score": 0.66767
+        },
+        {
+          "rank": 10,
+          "relevant": true,
+          "point_id": "da4c4c68-56dd-59f5-bf78-ca17ba4f76e1",
+          "document_id": "Zurich_Car_Insurance",
+          "page_number": 5,
+          "page_chunk_index": 6,
+          "score": 0.665029
+        }
+      ]
+    }
+  ]
+}

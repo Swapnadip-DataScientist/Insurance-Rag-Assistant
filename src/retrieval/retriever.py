@@ -15,7 +15,10 @@ from src.retrieval.chunk_quality import (
     ChunkQualityResult,
     validate_chunk_text,
 )
-
+from src.retrieval.reranker import (
+    CrossEncoderReranker,
+    RerankerConfig,
+)
 
 LOGGER = logging.getLogger(__name__)
 
@@ -748,7 +751,26 @@ def main() -> None:
         text_field=args.text_field,
         duplicate_threshold=args.duplicate_threshold,
     )
+    # ========================================================================
+    # SECOND-STAGE CROSS-ENCODER RERANKER
+    # ========================================================================
+    # The retriever uses BGE-M3 + Qdrant to efficiently identify a candidate
+    # set using vector similarity.
+    #
+    # The cross-encoder then evaluates the original query together with each
+    # retrieved chunk and produces a more precise relevance ordering.
+    #
+    # The model is initialized here once and reused for all candidates in the
+    # current execution.
+    # ========================================================================
 
+    reranker = CrossEncoderReranker(
+    RerankerConfig(
+        device="cpu",
+        batch_size=8,
+        max_length=512,
+    )
+    )
     metadata_filters = parse_metadata_filters(args.filter)
 
     response = retriever.retrieve(
@@ -758,6 +780,22 @@ def main() -> None:
         include_document_ids=args.include_document_id,
         exclude_document_ids=args.exclude_document_id,
         score_threshold=args.score_threshold,
+    )
+    # ========================================================================
+    # SECOND-STAGE RERANKING
+    # ========================================================================
+    # response.results contains the chunks already selected and validated by
+    # the ProductionRetriever.
+    #
+    # The reranker does NOT query Qdrant again and does NOT change the original
+    # retrieval objects. It simply reorders them according to cross-encoder
+    # relevance.
+    # ========================================================================    
+
+    reranked_results = reranker.rerank_candidates(
+        query=args.query,
+        candidates=response.results,
+        top_n=3,
     )
 
     print("\n" + "=" * 100)
@@ -769,16 +807,29 @@ def main() -> None:
     print(f"Returned: {response.returned_count}")
     print(f"Diagnostics: {response.diagnostics}")
 
-    for result in response.results:
+    #for result in response.results:
+    for result in reranked_results:
+        candidate = result.candidate
+
         print("\n" + "=" * 100)
-        print(f"Rank: {result.rank}")
-        print(f"Score: {result.score:.6f}")
-        print(f"Point ID: {result.point_id}")
-        print(f"Document ID: {result.document_id}")
-        print(f"Source file: {result.source_file}")
-        print(f"Page: {result.page_number}")
-        print(f"Page chunk index: {result.page_chunk_index}")
-        print(f"Text: {result.text}")
+
+        print(f"Rerank Rank: {result.rerank_rank}")
+        print(f"Original Rank: {result.retrieval_rank}")
+        print(f"Reranker Score: {result.rerank_score:.6f}")
+
+        print("-" * 100)
+
+        print(f"Original Retrieval Rank: {candidate.rank}")
+        print(f"Vector Score: {candidate.score:.6f}")
+        print(f"Point ID: {candidate.point_id}")
+        print(f"Document ID: {candidate.document_id}")
+        print(f"Source file: {candidate.source_file}")
+        print(f"Page: {candidate.page_number}")
+        print(
+            f"Page chunk index: "
+            f"{candidate.page_chunk_index}"
+        )
+        print(f"Text: {candidate.text}")
 
     if args.show_rejected:
         print("\n" + "=" * 100)
