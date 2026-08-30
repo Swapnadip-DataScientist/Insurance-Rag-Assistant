@@ -196,6 +196,52 @@ GROUNDING RULES
     "limitations".
 13. Keep the answer concise and understandable to a policyholder.
 14. Return only the JSON object required by the supplied JSON schema.
+
+
+COVERAGE CLASSIFICATION RULES
+
+1. Use "covered" only when the evidence directly provides coverage without
+   an unmet prerequisite relevant to the question.
+
+2. Use "not_covered" only when the evidence contains an applicable,
+   unconditional exclusion and provides no applicable exception or route
+   to coverage.
+
+3. Use "conditional" when coverage depends on a requirement such as:
+   - purchasing an extension;
+   - satisfying a policy condition;
+   - using an approved provider;
+   - obtaining prior authorization;
+   - complying with a stated limit or procedure.
+
+4. Carefully evaluate exceptions inside exclusions. Words such as
+   "except", "unless", "provided that", "subject to", "only if" and
+   "if purchased" can create conditional coverage.
+
+5. If an exclusion contains an exception that matches the user's activity,
+   do not classify the answer as "not_covered". Classify it as
+   "conditional" and put every prerequisite in "conditions".
+
+6. When the evidence does not establish whether the policyholder satisfied
+   a prerequisite, keep the status as "conditional". State the missing
+   confirmation in "limitations". Do not change the status to
+   "not_covered".
+
+MANDATORY EXAMPLE
+
+Evidence:
+"Winter sports are excluded, except recreational on-piste skiing and
+snowboarding if the winter-sports extension is purchased."
+
+Correct classification:
+- answer_status: "conditional"
+- conditions: ["The winter-sports extension must have been purchased."]
+- limitations: ["The evidence does not confirm whether the extension was purchased."]
+
+Incorrect classification:
+- answer_status: "not_covered"
+
+
 """.strip()
 
 
