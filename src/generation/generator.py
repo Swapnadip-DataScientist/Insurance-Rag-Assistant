@@ -341,10 +341,11 @@ class OllamaConfig:
 
         # Security control:
         # reject remote hosts unless the code is deliberately changed later.
-        if (self.require_localhost and parsed_url.hostname  not in {"127.0.0.1", "localhost", "::1"}):
+        if (self.require_localhost and parsed_url.hostname  not in {"127.0.0.1", "localhost", "::1", "host.docker.internal",}):
             raise ValueError(
                 "Only a local Ollama endpoint is permitted. "
-                "Use 127.0.0.1, localhost or ::1."
+                "Use 127.0.0.1, localhost or ::1. or host.docker.internal"
+                 
             )
 
         if (not math.isfinite(self.temperature) or self.temperature < 0  or self.temperature > 1

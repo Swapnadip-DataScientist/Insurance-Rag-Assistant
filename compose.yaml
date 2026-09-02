@@ -16,13 +16,8 @@ services:
     restart: unless-stopped
 
     healthcheck:
-      test:
-        [
-          "CMD",
-          "wget",
-          "-qO-",
-          "http://127.0.0.1:6333/healthz"
-        ]
+      #test: [ "CMD", "wget","-qO-", "http://127.0.0.1:6333/healthz"]
+      test: [ "CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/6333'"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -129,7 +124,7 @@ volumes:
 
   insurance_rag_qdrant_storage:
     external: true
-    name: insurance_rag_qdrant_storage
+    name: ${QDRANT_VOLUME_NAME:-insurance_rag_qdrant_storage}
 
   insurance_rag_hf_cache:
 
