@@ -76,6 +76,11 @@ class ApiSettings:
         "RERANKER_MODEL",
         "BAAI/bge-reranker-v2-m3",
     )
+    # ---------------------------------------------------------
+    # LLM provider
+    # ---------------------------------------------------------
+
+    llm_provider: str = os.getenv("LLM_PROVIDER","ollama",).strip().lower()
 
     # ---------------------------------------------------------
     # Ollama
@@ -104,6 +109,20 @@ class ApiSettings:
             "8192",
         )
     )
+
+    #OpenAI API Key
+    openai_api_key: str = os.getenv(
+        "OPENAI_API_KEY",)
+    openai_model: str = os.getenv(
+        "OPENAI_MODEL","gpt-5.6-luna",)
+
+
+    #Groq API Key
+    groq_api_key: str = os.getenv(
+        "GROQ_API_KEY",)   
+    
+    groq_model: str = os.getenv(
+        "GROQ_MODEL","groq-oss-20b",)
 
     # ---------------------------------------------------------
     # API capacity
@@ -140,3 +159,29 @@ class ApiSettings:
             raise ValueError(
                 "max_concurrent_requests must be greater than 0."
             )
+
+        if self.llm_provider not in ("ollama", "openai", "groq"):
+            raise ValueError(
+                f"Unsupported LLM provider: {self.llm_provider}. "
+                "Supported providers are: ollama, openai, groq."
+            )
+
+        if self.llm_provider == "ollama":
+            if not self.ollama_model:
+                raise ValueError(
+                    "OLLAMA_MODEL must be set when using Ollama provider."
+                )
+            if not self.ollama_base_url:
+                raise ValueError(
+                    "OLLAMA_BASE_URL must be set when using Ollama provider."
+                )
+        elif self.llm_provider == "openai":
+            if not self.openai_api_key:
+                raise ValueError(
+                    "OPENAI_API_KEY must be set when using OpenAI provider."
+                )
+        elif self.llm_provider == "groq":
+            if not self.groq_api_key:
+                raise ValueError(
+                    "GROQ_API_KEY must be set when using Groq provider."
+                ) 

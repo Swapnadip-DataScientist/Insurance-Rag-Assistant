@@ -1,4 +1,8 @@
 from __future__ import annotations
+
+
+
+
 import argparse
 import json
 import logging
@@ -16,6 +20,14 @@ from src.retrieval.reranker import (
     RerankerConfig,
 )
 
+from src.generation.llm_client import (
+    GenerationError,
+    InvalidModelResponseError,
+    LLMUnavailableError,
+    ModelNotAvailableError,
+    StructuredLLMClient,
+    StructuredLLMResult,
+)
 
 # ============================================================================
 # THIRD-PARTY IMPORTS
@@ -263,28 +275,15 @@ Incorrect classification:
 # Create meaningful application-specific exception types.
 
 # WHY:A production application must distinguish between:
-#   - Ollama not running,
-#   - Qwen not installed,
-#   - invalid model output,
-#   - general generation failure.
 # This becomes important when FastAPI later converts these errors into appropriate HTTP responses.
 
 
-class GenerationError(RuntimeError):
-    """Base exception for grounded-generation failures."""
+class OllamaUnavailableError(Exception):
+    """Local Ollama service is not running or cannot be reached."""
+    pass
 
-
-class OllamaUnavailableError(GenerationError):
+class OllamaUnavailableError(LLMUnavailableError):
     """Raised when the local Ollama service cannot be reached."""
-
-
-class ModelNotAvailableError(GenerationError):
-    """Raised when the configured model is not installed in Ollama."""
-
-
-class InvalidModelResponseError(GenerationError):
-    """Raised when model output fails application validation."""
-
 
 # ============================================================================
 # OLLAMA CONFIGURATION
@@ -466,23 +465,6 @@ class GroundedAnswer:
 
 
 # ============================================================================
-# RAW OLLAMA RESULT METADATA
-# ============================================================================
-# WHAT: # Store the parsed output and Ollama performance information.
-# WHY: # Token counts and duration help diagnose latency and capacity later without
-# logging the entire question or policy evidence.
-
-
-@dataclass(frozen=True)
-class OllamaStructuredResult:
-    parsed_output: dict[str, Any]
-    actual_model_name: str
-    prompt_token_count: int | None
-    output_token_count: int | None
-    total_duration_ns: int | None
-
-
-# ============================================================================
 # FINAL GENERATION RESPONSE
 # ============================================================================
 # WHAT:
@@ -581,8 +563,7 @@ class OllamaQwenClient:
         # Remove a trailing slash so URLs are built consistently.
         self.base_url = self.config.base_url.rstrip("/")
 
-        # Different timeout values are used because connecting locally should
-        # be fast, while CPU generation can take considerably longer.
+        # Different timeout values are used because connecting locally should be fast, while CPU generation can take considerably longer.
         timeout = httpx.Timeout(
             connect=self.config.connect_timeout_seconds,
             read=self.config.read_timeout_seconds,
@@ -595,6 +576,10 @@ class OllamaQwenClient:
         # Avoid requesting /api/tags before every generation after the first
         # successful verification.
         self._model_verified = False
+
+    @property
+    def model_name(self) -> str:
+        return self.config.model_name
 
     def close(self) -> None:
         """
@@ -698,7 +683,8 @@ class OllamaQwenClient:
         *,
         system_prompt: str,
         user_prompt: str,
-    ) -> OllamaStructuredResult:
+        response_schema: dict[str, Any],
+    ) -> StructuredLLMResult:
         """
         Send the grounded prompt to Qwen and request structured JSON.
 
@@ -731,7 +717,7 @@ class OllamaQwenClient:
             "think": False,
 
             # Ask Ollama to enforce our answer schema.
-            "format": ANSWER_JSON_SCHEMA,
+            "format": response_schema,
 
             "options": {
                 # Deterministic settings are preferable for policy answers.
@@ -813,7 +799,7 @@ class OllamaQwenClient:
         if not isinstance(actual_model_name, str):
             actual_model_name = self.config.model_name
 
-        return OllamaStructuredResult(
+        return StructuredLLMResult(
             parsed_output=parsed_output,
             actual_model_name=actual_model_name,
             prompt_token_count=_optional_int(
@@ -1126,9 +1112,10 @@ class GroundedGenerator:
     def __init__(
         self,
         *,
-        llm_client: OllamaQwenClient,
+        llm_client: StructuredLLMClient,
         config: GenerationConfig | None = None,
     ) -> None:
+        
         self.llm_client = llm_client
         self.config = config or GenerationConfig()
 
@@ -1224,7 +1211,7 @@ class GroundedGenerator:
             query=retrieval_response.query,
             grounded_answer=grounded_answer,
             sources=(),
-            model_name=self.llm_client.config.model_name,
+            model_name=self.llm_client.model_name,
             created_at_utc=datetime.now(
                 timezone.utc
             ).isoformat(),
@@ -1278,6 +1265,7 @@ class GroundedGenerator:
         llm_result = self.llm_client.generate_structured(
             system_prompt=SYSTEM_PROMPT,
             user_prompt=user_prompt,
+            response_schema=ANSWER_JSON_SCHEMA
         )
 
         generation_latency_ms = (

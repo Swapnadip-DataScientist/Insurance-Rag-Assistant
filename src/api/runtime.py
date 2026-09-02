@@ -10,9 +10,10 @@ from src.api.service import RAGService
 
 from src.generation.generator import (
     GenerationConfig,
-    GroundedGenerator,
-    OllamaConfig,
-    OllamaQwenClient,
+    GroundedGenerator
+)
+from src.generation.provider_factory import (
+    build_llm_client,
 )
 
 from src.retrieval.reranker import (
@@ -102,24 +103,41 @@ def build_rag_service(
         )
 
         # -----------------------------------------------------
-        # Local Qwen / Ollama
+        # Configured LLM provider
         # -----------------------------------------------------
 
-        ollama_config = OllamaConfig(
-            model_name=settings.ollama_model,
-            base_url=settings.ollama_base_url,
-            read_timeout_seconds=(
+        llm_client = build_llm_client(
+            provider=settings.llm_provider,
+
+            generation_timeout_seconds=(
                 settings.generation_timeout_seconds
             ),
-            num_ctx=settings.num_ctx,
+
+            # Ollama
+            ollama_model=settings.ollama_model,
+            ollama_base_url=(
+                settings.ollama_base_url
+            ),
+            ollama_num_ctx=(
+                settings.num_ctx           ),
+
+            # Groq
+            groq_api_key=settings.groq_api_key,
+            groq_model=settings.groq_model,
+
+            # OpenAI
+            openai_api_key=(
+                settings.openai_api_key
+            ),
+            openai_model=(
+                settings.openai_model
+            ),
         )
 
-        with OllamaQwenClient(
-            ollama_config
-        ) as llm_client:
+        try:
 
-            # API should fail during startup instead of
-            # accepting requests when Ollama/Qwen is missing.
+            # Fail fast if selected provider/model
+            # cannot be reached.
             llm_client.ensure_model_available()
 
             generator = GroundedGenerator(
@@ -135,16 +153,17 @@ def build_rag_service(
                 retriever=retriever,
                 reranker=reranker,
                 generator=generator,
-                retrieval_top_k=(
-                    settings.retrieval_top_k
-                ),
-                rerank_top_k=(
-                    settings.rerank_top_k
-                ),
             )
 
             yield service
 
+        finally:
+
+            # Close HTTP connection owned by
+            # Ollama / Groq / OpenAI client.
+            llm_client.close()
+
     finally:
 
+        # Close Qdrant network resources.
         qdrant_client.close()
