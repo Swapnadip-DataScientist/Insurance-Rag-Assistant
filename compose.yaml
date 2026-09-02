@@ -1,0 +1,144 @@
+services:
+
+  # ==========================================================
+  # VECTOR DATABASE
+  # ==========================================================
+  qdrant:
+    image: qdrant/qdrant:latest
+
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+
+    volumes:
+      - insurance_rag_qdrant_storage:/qdrant/storage
+
+    restart: unless-stopped
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "-qO-",
+          "http://127.0.0.1:6333/healthz"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+    networks:
+      - rag_network
+
+
+  # ==========================================================
+  # FASTAPI / RAG BACKEND
+  # ==========================================================
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      QDRANT_HOST: qdrant
+      QDRANT_PORT: "6333"
+      QDRANT_COLLECTION: insurance_policy_chunks_bge_m3_v1
+      QDRANT_VECTOR_NAME: dense
+
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+      OLLAMA_MODEL: qwen3.5:4b-q4_K_M
+
+      RETRIEVAL_TOP_K: "10"
+      RERANK_TOP_K: "2"
+
+      RERANKER_MODEL: BAAI/bge-reranker-v2-m3
+
+      GENERATION_TIMEOUT_SECONDS: "180"
+      OLLAMA_NUM_CTX: "8192"
+
+      MAX_CONCURRENT_REQUESTS: "1"
+
+      HF_HOME: /root/.cache/huggingface
+
+    volumes:
+      - insurance_rag_hf_cache:/root/.cache/huggingface
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    depends_on:
+      qdrant:
+        condition: service_healthy
+
+    restart: unless-stopped
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready', timeout=5)"
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 120s
+
+    networks:
+      - rag_network
+
+
+  # ==========================================================
+  # GRADIO UI
+  # ==========================================================
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+
+    ports:
+      - "7860:7860"
+
+    environment:
+      RAG_API_URL: http://api:8000/ask
+      RAG_API_TIMEOUT_SECONDS: "240"
+
+      GRADIO_SERVER_NAME: 0.0.0.0
+      GRADIO_SERVER_PORT: "7860"
+
+    depends_on:
+      api:
+        condition: service_healthy
+
+    restart: unless-stopped
+
+    networks:
+      - rag_network
+
+
+# ============================================================
+# VOLUMES
+# ============================================================
+
+volumes:
+
+  insurance_rag_qdrant_storage:
+    external: true
+    name: insurance_rag_qdrant_storage
+
+  insurance_rag_hf_cache:
+
+
+# ============================================================
+# NETWORK
+# ============================================================
+
+networks:
+
+  rag_network:
+    driver: bridge
